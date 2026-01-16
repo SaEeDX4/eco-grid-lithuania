@@ -64,6 +64,14 @@ const Navbar = () => {
     { to: "/devices", label: "Devices", protected: true },
     { to: "/optimizer", label: "Optimizer", protected: true },
     { to: "/vpp", label: "VPP" },
+
+    // ✅ NEW — P2P (Module 19 placeholder)
+    {
+      to: "/p2p",
+      label: "Community Energy",
+      badge: "Pilot",
+    },
+
     { to: "/reports", label: "Reports", protected: true },
   ];
 
@@ -121,9 +129,16 @@ const Navbar = () => {
                     ? (e) => handleProtectedClick(e, link.to)
                     : undefined
                 }
-                className="text-slate-700 dark:text-slate-300 hover:text-green-600 dark:hover:text-green-400 font-medium transition-colors relative group"
+                className="flex items-center gap-2 text-slate-700 dark:text-slate-300 hover:text-green-600 dark:hover:text-green-400 font-medium transition-colors relative group"
               >
                 {link.label}
+
+                {link.badge && (
+                  <span className="ml-1 px-2 py-0.5 text-xs rounded-full bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300">
+                    {link.badge}
+                  </span>
+                )}
+
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-600 group-hover:w-full transition-all duration-300" />
               </Link>
             ))}
@@ -226,15 +241,19 @@ const Navbar = () => {
         {mobileMenuOpen && (
           <div className="md:hidden py-4">
             <div className="flex flex-col gap-4">
-              {/* LEFT NAV */}
               {leftNav.map((link) => (
                 <Link
                   key={link.to}
                   to={link.to}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="py-2 px-4 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+                  className="flex items-center justify-between py-2 px-4 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
                 >
-                  {link.label}
+                  <span>{link.label}</span>
+                  {link.badge && (
+                    <span className="px-2 py-0.5 text-xs rounded-full bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300">
+                      {link.badge}
+                    </span>
+                  )}
                 </Link>
               ))}
 

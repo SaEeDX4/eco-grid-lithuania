@@ -26,8 +26,8 @@ import contactRoutes from "./routes/contact.js";
 import chatRoutes from "./routes/chat.js";
 
 // ⭐ ADDED FOR MOD 15 FAQ
-import faqRoutes from "./routes/faq.js"; // ⭐ ADDED
-import faqAdminRoutes from "./routes/faqAdmin.js"; // ⭐ ADDED
+import faqRoutes from "./routes/faq.js";
+import faqAdminRoutes from "./routes/faqAdmin.js";
 
 // ✅ Added new pricing & subscription routes (Claude instruction)
 import pricingRoutes from "./routes/pricing.js";
@@ -50,14 +50,17 @@ import caseStudiesRoutes from "./routes/caseStudies.js";
 // ✅ Added Pilots Routes (Module 14)
 import pilotsRoutes from "./routes/pilots.js";
 
-// ⭐ ⭐ EXACTLY AS CLAUDE REQUIRED — ROADMAP ROUTES
-import roadmapRoutes from "./routes/roadmap.js"; // ⭐ EXACTLY AS CLAUDE SAID
+// ⭐⭐ Roadmap Routes (Module 16)
+import roadmapRoutes from "./routes/roadmap.js";
 
-// ⭐⭐⭐ ADDED — VPP (MODULE 17)
-import vppRoutes from "./routes/vpp.js"; // ⭐ DO NOT MODIFY
+// ⭐⭐⭐ VPP (MODULE 17)
+import vppRoutes from "./routes/vpp.js";
 
-// ⭐⭐⭐⭐ ADDED — HUB ROUTES (MODULE 18)
-import hubRoutes from "./routes/hub.js"; // ⭐ EXACTLY AS REQUESTED
+// ⭐⭐⭐⭐ HUB ROUTES (MODULE 18)
+import hubRoutes from "./routes/hub.js";
+
+// ✅ NEW — P2P ROUTES (MODULE 19)
+import p2pRoutes from "./routes/p2pRoutes.js";
 
 import { connectDB } from "./config/db.js";
 
@@ -133,38 +136,41 @@ app.use("/api/partners", partnersRoutes);
 app.use("/api/contact", contactRoutes);
 app.use("/api/chat", chatRoutes);
 
-// ⭐ ADDED FAQ ROUTES (Module 15)
-app.use("/api/faq", faqRoutes); // ⭐ ADDED
-app.use("/api/faq/admin", faqAdminRoutes); // ⭐ ADDED
+// ⭐ FAQ ROUTES
+app.use("/api/faq", faqRoutes);
+app.use("/api/faq/admin", faqAdminRoutes);
 
-// ✅ Added new Pricing and Subscription routes (Claude instruction)
+// ✅ Pricing & Subscriptions
 app.use("/api/pricing", pricingRoutes);
 app.use("/api/subscriptions", subscriptionRoutes);
 
-// ✅ Metrics and System Routes (Claude instruction)
+// ✅ Metrics & System
 app.use("/api/metrics", metricsRoutes);
 app.use("/api/system", systemRoutes);
 
-// ✅ Blog & Content Routes (Claude instruction)
+// ✅ Blog & Content
 app.use("/api/articles", articlesRoutes);
 app.use("/api/newsletter", newsletterRoutes);
 app.use("/api/ai-writer", aiWriterRoutes);
 
-// ⭐ Testimonials & Case Studies Routes (Module 13)
+// ⭐ Testimonials & Case Studies
 app.use("/api/testimonials", testimonialsRoutes);
 app.use("/api/case-studies", caseStudiesRoutes);
 
-// ⭐ Pilots Routes (Module 14)
+// ⭐ Pilots
 app.use("/api/pilots", pilotsRoutes);
 
-// ⭐⭐ Roadmap Routes (Module 16)
+// ⭐ Roadmap
 app.use("/api/roadmap", roadmapRoutes);
 
-// ⭐⭐⭐ VPP Routes (MODULE 17 — Virtual Power Plant)
-app.use("/api/vpp", vppRoutes); // ⭐ DO NOT CHANGE
+// ⭐ VPP
+app.use("/api/vpp", vppRoutes);
 
-// ⭐⭐⭐⭐ HUB ROUTES (MODULE 18 — Ultra Critical)
-app.use("/api/hub", hubRoutes); // ⭐ EXACTLY AS CLAUDE INSTRUCTED
+// ⭐ HUB
+app.use("/api/hub", hubRoutes);
+
+// ✅ NEW — P2P (MODULE 19)
+app.use("/api/p2p", p2pRoutes);
 
 // =============================
 // 📌 ROOT DOC
@@ -196,11 +202,11 @@ app.get("/api", (req, res) => {
       "case-studies": "/api/case-studies",
       pilots: "/api/pilots",
       roadmap: "/api/roadmap",
-      hub: "/api/hub", // ⭐ ADDED FOR MODULE 18
+      hub: "/api/hub",
       faq: "/api/faq",
       faqAdmin: "/api/faq/admin",
       vpp: "/api/vpp",
-      forecast: "/api/forecast (coming soon)",
+      p2p: "/api/p2p",
     },
   });
 });
@@ -234,7 +240,6 @@ app.listen(PORT, () => {
   console.log(`📚 API docs: http://localhost:${PORT}/api`);
   console.log(`💚 Health check: http://localhost:${PORT}/api/health`);
 
-  // 🔐 Claude API
   if (process.env.ANTHROPIC_API_KEY) {
     console.log("🤖 Claude API key detected successfully ✅");
   } else {

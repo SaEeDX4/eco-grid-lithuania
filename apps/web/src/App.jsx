@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
-import { ChatProvider } from "./context/ChatContext"; // ✅ Added ChatProvider
-import { TranslationProvider } from "./context/TranslationContext"; // ✅ Added TranslationProvider
+import { ChatProvider } from "./context/ChatContext";
+import { TranslationProvider } from "./context/TranslationContext";
 import { useToast } from "./hooks/useToast";
 import { ToastContainer } from "./components/ui/Toast";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import ChatLauncher from "./components/chat/ChatLauncher"; // ✅ Added ChatLauncher
+import ChatLauncher from "./components/chat/ChatLauncher";
 
 // ✅ Pages
 import LandingPage from "./pages/LandingPage";
@@ -19,12 +19,12 @@ import ForgotPasswordPage from "./pages/auth/ForgotPasswordPage";
 import VerifyEmailPage from "./pages/auth/VerifyEmailPage";
 import DashboardPage from "./pages/DashboardPage";
 import DevicesPage from "./pages/DevicesPage";
-import AboutPage from "./pages/AboutPage"; // ✅ Added for Module 13
-import OptimizerPage from "./pages/OptimizerPage"; // ✅ Module 5
-import ReportsPage from "./pages/ReportsPage"; // ✅ Added for Module 6
-import PartnersPage from "./pages/PartnersPage"; // ✅ Added for Module 14
-import ContactPage from "./pages/ContactPage"; // ✅ Added for Module 9
-import PricingPage from "./pages/PricingPage"; // ✅ Added for Module 10
+import AboutPage from "./pages/AboutPage";
+import OptimizerPage from "./pages/OptimizerPage";
+import ReportsPage from "./pages/ReportsPage";
+import PartnersPage from "./pages/PartnersPage";
+import ContactPage from "./pages/ContactPage";
+import PricingPage from "./pages/PricingPage";
 
 // ✅ From Claude
 import SUVPage from "./pages/SUVPage";
@@ -62,6 +62,9 @@ import HubAnalytics from "./pages/HubAnalytics";
 import HubRevenue from "./pages/HubRevenue";
 import TenantDetail from "./pages/TenantDetail";
 // ⭐⭐⭐⭐ END HUB PAGES
+
+// ⭐ NEW — P2P Community Page (Module 19 placeholder)
+import P2PCommunity from "./pages/P2PCommunity";
 
 function AppContent() {
   const { toasts, removeToast } = useToast();
@@ -140,6 +143,18 @@ function AppContent() {
             <>
               <Navbar />
               <PricingPage />
+              <Footer />
+            </>
+          }
+        />
+
+        {/* ✅ NEW — P2P Community (safe placeholder) */}
+        <Route
+          path="/p2p"
+          element={
+            <>
+              <Navbar />
+              <P2PCommunity />
               <Footer />
             </>
           }
@@ -302,7 +317,6 @@ function AppContent() {
             </>
           }
         />
-        {/* END VPP */}
 
         {/* AUTH */}
         <Route path="/auth/login" element={<LoginPage />} />
@@ -356,7 +370,7 @@ function AppContent() {
           }
         />
 
-        {/* ⭐⭐⭐⭐ HUB ROUTES (SAFE COPY — NO REMOVALS) */}
+        {/* ⭐⭐⭐⭐ HUB ROUTES */}
         <Route
           path="/hub/list"
           element={
@@ -422,7 +436,6 @@ function AppContent() {
             </ProtectedRoute>
           }
         />
-        {/* ⭐⭐⭐⭐ END HUB ROUTES */}
 
         {/* 404 */}
         <Route
@@ -453,8 +466,6 @@ function App() {
             <div className="min-h-screen bg-background">
               <AppContent />
             </div>
-
-            {/* Chat Launcher stays outside pages */}
             <ChatLauncher />
           </Router>
         </TranslationProvider>
