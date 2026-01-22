@@ -99,7 +99,7 @@ const caseStudySchema = new mongoose.Schema(
 );
 
 // Indexes
-caseStudySchema.index({ slug: 1 });
+// NOTE: slug index is already created via `unique: true`
 caseStudySchema.index({ status: 1, featured: -1, publishedAt: -1 });
 caseStudySchema.index({ industry: 1, status: 1 });
 

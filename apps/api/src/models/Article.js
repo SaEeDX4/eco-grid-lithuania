@@ -95,7 +95,7 @@ const articleSchema = new mongoose.Schema(
 );
 
 // Indexes
-articleSchema.index({ slug: 1 });
+// NOTE: slug index is already created via `unique: true`
 articleSchema.index({ status: 1, publishedAt: -1 });
 articleSchema.index({ category: 1, status: 1 });
 articleSchema.index({ tags: 1 });
