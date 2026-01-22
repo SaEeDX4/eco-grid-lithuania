@@ -21,6 +21,7 @@
     "seed:all": "npm run seed:blog && npm run seed:testimonials && npm run seed:pilots && npm run seed:faqs && npm run seed:roadmap && npm run seed:vpp && npm run seed:hub"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.71.2",
     "bcrypt": "^6.0.0",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
