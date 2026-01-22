@@ -6,7 +6,6 @@ const contactMessageSchema = new mongoose.Schema(
       type: String,
       required: true,
       unique: true,
-      index: true,
     },
     fullName: {
       type: String,
@@ -57,19 +56,21 @@ const contactMessageSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  },
+  }
 );
 
 // Indexes
 contactMessageSchema.index({ email: 1 });
 contactMessageSchema.index({ status: 1 });
 contactMessageSchema.index({ createdAt: -1 });
-contactMessageSchema.index({ referenceId: 1 });
 
 // Generate reference ID
 contactMessageSchema.pre("save", function (next) {
   if (!this.referenceId) {
-    this.referenceId = `REF-${Date.now()}-${Math.random().toString(36).substr(2, 6).toUpperCase()}`;
+    this.referenceId = `REF-${Date.now()}-${Math.random()
+      .toString(36)
+      .substr(2, 6)
+      .toUpperCase()}`;
   }
   next();
 });

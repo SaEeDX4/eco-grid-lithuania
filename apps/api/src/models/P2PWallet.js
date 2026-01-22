@@ -8,7 +8,6 @@ const P2PWalletSchema = new mongoose.Schema(
       ref: "User",
       required: true,
       unique: true,
-      index: true,
     },
 
     // Balance tracking

@@ -14,7 +14,6 @@ const P2POfferSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
-      index: true,
     },
     ownerName: {
       type: String,
@@ -50,7 +49,6 @@ const P2POfferSchema = new mongoose.Schema(
     region: {
       type: String,
       required: true,
-      index: true,
     },
     city: {
       type: String,
@@ -79,7 +77,6 @@ const P2POfferSchema = new mongoose.Schema(
       type: String,
       enum: ["open", "partial", "matched", "cancelled", "expired"],
       default: "open",
-      index: true,
     },
 
     // Preferences
@@ -112,7 +109,6 @@ const P2POfferSchema = new mongoose.Schema(
     expiresAt: {
       type: Date,
       required: true,
-      index: true,
     },
   },
   {

@@ -6,7 +6,6 @@ const chatSessionSchema = new mongoose.Schema(
       type: String,
       required: true,
       unique: true,
-      index: true,
     },
     userId: {
       type: mongoose.Schema.Types.ObjectId,
@@ -60,7 +59,7 @@ const chatSessionSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  },
+  }
 );
 
 // Indexes

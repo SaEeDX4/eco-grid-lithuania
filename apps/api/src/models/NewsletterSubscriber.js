@@ -72,7 +72,6 @@ const newsletterSubscriberSchema = new mongoose.Schema(
 );
 
 // Indexes
-newsletterSubscriberSchema.index({ email: 1 });
 newsletterSubscriberSchema.index({ status: 1 });
 newsletterSubscriberSchema.index({ verificationToken: 1 });
 newsletterSubscriberSchema.index({ unsubscribeToken: 1 });

@@ -7,7 +7,6 @@ const P2PTradeSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
-      index: true,
     },
     buyerName: {
       type: String,
@@ -17,7 +16,6 @@ const P2PTradeSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
-      index: true,
     },
     sellerName: {
       type: String,
@@ -29,7 +27,6 @@ const P2PTradeSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "P2POffer",
       required: true,
-      index: true,
     },
 
     // Energy details
@@ -77,11 +74,9 @@ const P2PTradeSchema = new mongoose.Schema(
       type: String,
       enum: ["pending", "confirmed", "failed"],
       default: "pending",
-      index: true,
     },
     txHash: {
       type: String,
-      index: true,
     },
     blockNumber: {
       type: Number,
