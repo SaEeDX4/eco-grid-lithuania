@@ -28,7 +28,7 @@ const Footer = () => {
       { label: "About", to: "/about" },
       { label: "Careers", to: "/careers" },
       { label: "Partners", to: "/partners" },
-      { label: "Contact", to: "/contact" }, // ✅ Added Contact Link (per Module 31)
+      { label: "Contact", to: "/contact" },
     ],
     Legal: [
       { label: "Privacy", to: "/privacy" },
@@ -55,8 +55,8 @@ const Footer = () => {
               <span className="text-2xl font-bold">Eco-Grid</span>
             </Link>
             <p className="text-slate-400 mb-6 max-w-sm">
-              Smart energy management for Canadian homes and businesses. Join
-              the green revolution in Vancouver, BC.
+              Smart energy management for European homes and businesses. Join
+              the green energy transition in Vilnius, Lithuania.
             </p>
             <div className="flex gap-4">
               <a
@@ -105,7 +105,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="flex items-center gap-3">
               <MapPin className="text-green-500" size={20} />
-              <span className="text-slate-400">Vancouver, BC, Canada</span>
+              <span className="text-slate-400">Vilnius, Lithuania</span>
             </div>
             <div className="flex items-center gap-3">
               <Mail className="text-green-500" size={20} />
@@ -113,18 +113,8 @@ const Footer = () => {
             </div>
             <div className="flex items-center gap-3">
               <Phone className="text-green-500" size={20} />
-              <span className="text-slate-400">+1 (604) 555-0100</span>
+              <span className="text-slate-400">+370 600 00000</span>
             </div>
-          </div>
-
-          {/* ✅ Added Contact Us link below info */}
-          <div className="mt-6 text-center">
-            <a
-              href="/contact"
-              className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-sm font-medium"
-            >
-              Contact Us
-            </a>
           </div>
         </div>
 
@@ -134,7 +124,7 @@ const Footer = () => {
             © 2025 Eco-Grid. All rights reserved.
           </p>
           <p className="text-slate-400 text-sm">
-            Made with 💚 in Vancouver for a sustainable future
+            Made with 💚 in Vilnius for a sustainable future
           </p>
         </div>
       </div>

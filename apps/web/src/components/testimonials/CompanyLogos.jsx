@@ -6,7 +6,7 @@ const CompanyLogos = ({ title = "Trusted by Leading Organizations" }) => {
     { name: "TechCorp", logo: "/logos/techcorp.svg" },
     { name: "Greenwood University", logo: "/logos/greenwood.svg" },
     { name: "Pacific Manufacturing", logo: "/logos/pacific.svg" },
-    { name: "City of Richmond", logo: "/logos/richmond.svg" },
+    { name: "City of Vilnius", logo: "/logos/vilnius.svg" },
     { name: "Alpine Resorts", logo: "/logos/alpine.svg" },
     { name: "Metro Transit", logo: "/logos/metro.svg" },
   ];

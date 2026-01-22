@@ -6,28 +6,28 @@ const ImpactTimeline = ({ milestones }) => {
     {
       date: "Q1 2024",
       title: "Platform Launch",
-      description: "50 pilot participants across BC",
+      description: "50 pilot participants across Lithuania",
       icon: "Calendar",
       color: "from-blue-500 to-cyan-600",
     },
     {
       date: "Q2 2024",
       title: "First Million Saved",
-      description: "Collective savings reached $1M",
+      description: "Collective savings reached €1M",
       icon: "TrendingUp",
       color: "from-green-500 to-emerald-600",
     },
     {
       date: "Q3 2024",
       title: "Industry Recognition",
-      description: "CleanTech BC Innovation Award",
+      description: "Baltic CleanTech Innovation Award",
       icon: "Award",
       color: "from-yellow-500 to-orange-600",
     },
     {
       date: "Q4 2024",
       title: "1000+ Organizations",
-      description: "Reached 1000 active participants",
+      description: "Reached 1,000 active organizations across the EU",
       icon: "Target",
       color: "from-purple-500 to-pink-600",
     },
@@ -51,7 +51,8 @@ const ImpactTimeline = ({ milestones }) => {
               Our Impact Journey
             </h2>
             <p className="text-lg text-slate-600 dark:text-slate-400">
-              Key milestones in building a more sustainable future
+              Key milestones in building a smarter and more sustainable energy
+              future across Europe
             </p>
           </div>
 

@@ -14,7 +14,6 @@ const ImpactCard = ({
 }) => {
   const [ref, isVisible] = useScrollAnimation(0.3);
 
-  // ✅ FIX: properly extract `value` from useCountUp hook result
   const { value: animatedValue } = useCountUp(isVisible ? value : 0, 0, 2000, {
     startOnMount: true,
   });
@@ -46,11 +45,9 @@ const ImpactTracker = () => {
   const [ref] = useScrollAnimation(0.2);
   const [liveData, setLiveData] = useState(null);
 
-  // ✅ Try loading from backend (safe + fallback)
   useEffect(() => {
     const fetchMetrics = async () => {
       try {
-        // ✅ FIX: use full backend URL so it connects to port 5000
         const res = await fetch("http://localhost:5000/api/metrics/impact");
         const json = await res.json();
         if (json.success && json.metrics) {
@@ -63,13 +60,12 @@ const ImpactTracker = () => {
     fetchMetrics();
   }, []);
 
-  // ✅ Fallback or real data
   const impacts = [
     {
       icon: DollarSign,
       value: liveData?.moneySavedCAD ?? 2847650,
-      label: "Saved (CAD)",
-      prefix: "$",
+      label: "Saved (EUR)",
+      prefix: "€",
       delay: 0,
     },
     {
@@ -120,7 +116,8 @@ const ImpactTracker = () => {
             Community Impact
           </h2>
           <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-200">
-            Join over 2,000 households in Vancouver making a real difference
+            Join thousands of households across Lithuania creating real,
+            measurable impact
           </p>
           <div className="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-green-100 dark:bg-green-900/30 rounded-full animate-in fade-in duration-1000 delay-300">
             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
@@ -136,7 +133,7 @@ const ImpactTracker = () => {
           ))}
         </div>
 
-        {/* ✅ Additional Stats Bar */}
+        {/* Additional Stats Bar */}
         <div className="mt-16 p-8 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-950/30 dark:to-emerald-950/30 rounded-2xl border border-green-200 dark:border-green-800 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-600">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div>

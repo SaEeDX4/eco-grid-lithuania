@@ -5,7 +5,7 @@ import api from "../../lib/api";
 const SmartHeadline = () => {
   const [headline, setHeadline] = useState("Transform Your Energy Usage");
   const [subheadline, setSubheadline] = useState(
-    "Join Vancouver's Smart Energy Revolution",
+    "Join Lithuania’s Smart Energy Transition"
   );
   const [loading, setLoading] = useState(true);
   const fetchedRef = useRef(false); // ✅ prevent double fetch in Strict Mode
@@ -19,7 +19,7 @@ const SmartHeadline = () => {
   const fetchSmartHeadline = async () => {
     try {
       const response = await api.post("/ai/smart-headline", {
-        location: "Vancouver, BC",
+        location: "Vilnius, Lithuania",
         timeOfDay: new Date().getHours(),
         season: getCurrentSeason(),
       });

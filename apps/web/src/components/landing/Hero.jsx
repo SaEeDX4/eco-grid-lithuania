@@ -33,7 +33,7 @@ const Hero = () => {
           <div className="mb-8 animate-in fade-in slide-in-from-top duration-1000">
             <Badge variant="success" className="text-sm px-4 py-2">
               <Zap size={14} className="mr-1" />
-              Now Live in Vancouver, BC 🇨🇦
+              Now Live in Vilnius, Lithuania 🇱🇹
             </Badge>
           </div>
 
@@ -58,7 +58,7 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* ✅ CTA Buttons (fixed) */}
+          {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">
             <Button
               variant="gradient"
@@ -86,7 +86,10 @@ const Hero = () => {
 
           {/* Trust Indicators */}
           <div className="text-sm text-slate-600 dark:text-slate-400 animate-in fade-in duration-1000 delay-700">
-            <p>Supported by BC Hydro • Innovate BC • Startup Visa Program</p>
+            <p>
+              Supported by national energy partners • EU Green Transition
+              initiatives • Startup Visa Program
+            </p>
           </div>
 
           {/* Video Placeholder */}

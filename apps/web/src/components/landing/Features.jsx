@@ -54,63 +54,63 @@ const Features = () => {
       icon: Brain,
       title: "AI-Powered Optimization",
       description:
-        "Claude AI analyzes your usage patterns and automatically optimizes energy consumption for maximum savings.",
+        "AI analyzes your usage patterns and automatically optimizes energy consumption for maximum savings.",
       delay: 0,
     },
     {
       icon: TrendingDown,
       title: "Reduce Bills by 40%",
       description:
-        "Smart scheduling and load shifting during off-peak hours dramatically reduce your monthly energy costs.",
+        "Smart scheduling and load shifting during off-peak hours can significantly reduce your monthly energy costs.",
       delay: 100,
     },
     {
       icon: Smartphone,
       title: "Real-Time Control",
       description:
-        "Monitor and control all your devices from anywhere with our beautiful mobile and desktop apps.",
+        "Monitor and control devices from anywhere with a seamless experience across mobile and desktop.",
       delay: 200,
     },
     {
       icon: Battery,
       title: "Battery Storage",
       description:
-        "Optimize home battery usage to store cheap energy and sell back during peak prices through VPP.",
+        "Optimize home battery usage to store lower-cost energy and support grid flexibility through VPP programs.",
       delay: 300,
     },
     {
       icon: Sun,
       title: "Solar Integration",
       description:
-        "Maximize your solar investment with intelligent forecasting and automated energy distribution.",
+        "Maximize solar value with intelligent forecasting and automated energy distribution across your home.",
       delay: 400,
     },
     {
       icon: Wind,
       title: "Carbon Tracking",
       description:
-        "Track your CO₂ reduction and earn carbon credits that can be traded in our marketplace.",
+        "Track your CO₂ reduction and estimate carbon impact with transparent reporting and analytics.",
       delay: 500,
     },
     {
       icon: Users,
       title: "P2P Energy Trading",
       description:
-        "Buy and sell excess energy directly with neighbors in a secure, blockchain-verified marketplace.",
+        "Buy and sell excess energy with nearby participants through a secure, verifiable marketplace experience.",
       delay: 600,
     },
     {
       icon: Shield,
       title: "Enterprise Security",
       description:
-        "Bank-grade encryption, PIPEDA compliant, and zero-trust architecture protect your data.",
+        "Bank-grade encryption, GDPR-aligned privacy, and zero-trust architecture help protect your data.",
       delay: 700,
     },
     {
       icon: Clock,
       title: "Predictive Analytics",
       description:
-        "Machine learning forecasts energy prices, weather, and demand to optimize your usage 24/7.",
+        "Forecast energy prices, weather, and demand to optimize your usage continuously, 24/7.",
       delay: 800,
     },
   ];
@@ -123,8 +123,8 @@ const Features = () => {
             Everything You Need
           </h2>
           <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-200">
-            Comprehensive energy management powered by cutting-edge AI and
-            designed for Canadian homes
+            Comprehensive energy management powered by modern AI and designed
+            for homes and communities across Lithuania
           </p>
         </div>
 

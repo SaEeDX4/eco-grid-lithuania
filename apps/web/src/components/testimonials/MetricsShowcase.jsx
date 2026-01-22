@@ -8,7 +8,7 @@ const MetricsShowcase = ({ metrics }) => {
       icon: DollarSign,
       label: "Total Cost Savings",
       value: metrics?.totalSavings || 1427000,
-      prefix: "$",
+      prefix: "€",
       suffix: "",
       color: "from-green-500 to-emerald-600",
       decimals: 0,
@@ -61,8 +61,8 @@ const MetricsShowcase = ({ metrics }) => {
             Collective Impact
           </h2>
           <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-            Real results from our growing community of energy-conscious
-            organizations
+            Real results from a growing community of energy-conscious
+            organizations across Europe
           </p>
         </div>
 
@@ -117,7 +117,7 @@ const MetricsShowcase = ({ metrics }) => {
           <p className="text-blue-100 text-lg">
             Join{" "}
             <span className="font-bold text-white">127+ organizations</span>{" "}
-            already making an impact
+            already accelerating the clean energy transition
           </p>
         </div>
       </div>

@@ -63,7 +63,7 @@ const FeaturedTestimonial = ({ testimonials, onVideoClick, onReadMore }) => {
           <div className="text-center mb-12 animate-in fade-in slide-in-from-top duration-700">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-6 border border-white/30">
               <span className="text-white font-semibold">
-                Featured Success Story
+                Featured European Success Story
               </span>
             </div>
           </div>
@@ -93,15 +93,12 @@ const FeaturedTestimonial = ({ testimonials, onVideoClick, onReadMore }) => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               {/* Left: Content */}
               <div className="text-white">
-                {/* Quote Icon */}
                 <Quote className="mb-6 opacity-50" size={48} />
 
-                {/* Quote Text */}
                 <blockquote className="text-3xl font-bold leading-relaxed mb-8">
                   "{currentTestimonial.quote}"
                 </blockquote>
 
-                {/* Rating */}
                 <div className="mb-6">
                   <RatingStars rating={currentTestimonial.rating} size="lg" />
                 </div>
@@ -137,7 +134,7 @@ const FeaturedTestimonial = ({ testimonials, onVideoClick, onReadMore }) => {
                       className="flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-blue-600 font-bold hover:shadow-xl transition-all duration-200 hover:scale-105"
                     >
                       <Play size={20} fill="currentColor" />
-                      Watch Video
+                      Watch Story
                     </button>
                   )}
                   {onReadMore && (
@@ -145,7 +142,7 @@ const FeaturedTestimonial = ({ testimonials, onVideoClick, onReadMore }) => {
                       onClick={() => onReadMore(currentTestimonial)}
                       className="flex items-center gap-2 px-6 py-3 rounded-xl bg-white/20 backdrop-blur-sm border border-white/30 text-white font-bold hover:bg-white/30 transition-all duration-200"
                     >
-                      Read Full Story
+                      Read Full Case Study
                       <ArrowRight size={20} />
                     </button>
                   )}
@@ -155,13 +152,13 @@ const FeaturedTestimonial = ({ testimonials, onVideoClick, onReadMore }) => {
               {/* Right: Metrics */}
               <div className="space-y-6">
                 <h3 className="text-2xl font-bold text-white mb-4">
-                  Impact Metrics
+                  Measured Impact
                 </h3>
 
                 <div className="space-y-4">
                   <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20">
                     <div className="text-sm text-blue-100 mb-2">
-                      Annual Cost Savings
+                      Annual Energy Cost Savings
                     </div>
                     <div className="text-4xl font-bold text-white">
                       {currentTestimonial.metrics.costSavings}
@@ -170,7 +167,7 @@ const FeaturedTestimonial = ({ testimonials, onVideoClick, onReadMore }) => {
 
                   <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20">
                     <div className="text-sm text-blue-100 mb-2">
-                      Carbon Reduction
+                      CO₂ Emissions Reduction
                     </div>
                     <div className="text-4xl font-bold text-white">
                       {currentTestimonial.metrics.carbonReduction}

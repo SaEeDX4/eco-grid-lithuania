@@ -40,7 +40,6 @@ const TestimonialsPage = () => {
   };
 
   const handleReadMore = (testimonial) => {
-    // Navigate to case study if available
     console.log("Read more:", testimonial);
   };
 
@@ -73,9 +72,9 @@ const TestimonialsPage = () => {
               Real Results from Real Organizations
             </h1>
             <p className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
-              Discover how leading organizations across Canada are achieving
-              dramatic cost savings, carbon reductions, and operational
-              improvements with Eco-Grid
+              Discover how forward-thinking organizations across Lithuania and
+              the European market are achieving significant cost savings, carbon
+              reductions, and operational efficiency with Eco-Grid
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -87,7 +86,6 @@ const TestimonialsPage = () => {
                 <ChevronRight size={20} />
               </Link>
 
-              {/* ✅ FIXED BUTTON (added missing <a> tag) */}
               <a
                 href="#case-studies"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-white dark:bg-slate-800 text-slate-900 dark:text-white border-2 border-slate-200 dark:border-slate-700 rounded-xl font-semibold hover:shadow-lg transition-all duration-200"
@@ -123,12 +121,11 @@ const TestimonialsPage = () => {
                 What Our Clients Say
               </h2>
               <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-                Hear directly from organizations that have transformed their
-                energy management
+                Hear directly from organizations that have modernized their
+                energy management across Europe
               </p>
             </div>
 
-            {/* Filters */}
             <div className="mb-12">
               <TestimonialFilters
                 activeFilters={filters}
@@ -136,7 +133,6 @@ const TestimonialsPage = () => {
               />
             </div>
 
-            {/* Grid */}
             <TestimonialGrid
               testimonials={regularTestimonials}
               loading={loading}
@@ -160,8 +156,8 @@ const TestimonialsPage = () => {
                   In-Depth Case Studies
                 </h2>
                 <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-                  Explore detailed analyses of successful implementations across
-                  different industries
+                  Explore detailed analyses of successful Eco-Grid deployments
+                  across multiple European industries
                 </p>
               </div>
 
@@ -210,8 +206,9 @@ const TestimonialsPage = () => {
               Ready to Write Your Success Story?
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Join 127+ organizations already saving money, reducing carbon, and
-              optimizing energy with Eco-Grid
+              Join a growing number of European organizations already optimizing
+              costs, reducing emissions, and improving energy efficiency with
+              Eco-Grid
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -231,7 +228,6 @@ const TestimonialsPage = () => {
         </div>
       </section>
 
-      {/* Video Modal */}
       {videoModal && (
         <VideoModal testimonial={videoModal} onClose={handleCloseVideo} />
       )}

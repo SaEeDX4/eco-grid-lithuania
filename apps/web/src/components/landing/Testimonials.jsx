@@ -5,36 +5,36 @@ import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 const testimonials = [
   {
-    name: "Sarah Chen",
-    role: "Homeowner, Vancouver",
-    avatar: "SC",
+    name: "Eglė Petrauskaitė",
+    role: "Homeowner, Vilnius",
+    avatar: "EP",
     rating: 5,
-    text: "Eco-Grid cut my electricity bill by 42% in the first month! The AI coach gives me daily tips that actually work. Love the real-time monitoring.",
-    savings: "$180/month",
+    text: "Eco-Grid helped me significantly reduce my electricity costs within the first month. The AI insights are practical and easy to follow, and the real-time monitoring gives me full control.",
+    savings: "€165/month",
   },
   {
-    name: "Michael Roberts",
-    role: "Small Business Owner, Burnaby",
-    avatar: "MR",
+    name: "Tomas Jankauskas",
+    role: "Small Business Owner, Kaunas",
+    avatar: "TJ",
     rating: 5,
-    text: "As a café owner, energy costs were killing my margins. Eco-Grid optimized my refrigeration and HVAC. ROI in 3 months!",
-    savings: "$520/month",
+    text: "Running a café means tight margins. Eco-Grid optimized our refrigeration and energy usage with impressive results. The efficiency gains were visible very quickly.",
+    savings: "€480/month",
   },
   {
-    name: "Priya Patel",
-    role: "Tech Professional, Richmond",
-    avatar: "PP",
+    name: "Aistė Kazlauskienė",
+    role: "Solar Home Owner, Klaipėda",
+    avatar: "AK",
     rating: 5,
-    text: "The P2P energy trading feature is brilliant! I sell excess solar energy to my neighbors and earn extra income. Plus the carbon tracking is motivating.",
-    savings: "$240/month + trading",
+    text: "The peer-to-peer energy sharing concept is extremely promising. Being able to manage surplus solar energy locally while tracking environmental impact feels very future-ready.",
+    savings: "€210/month",
   },
   {
-    name: "David Kim",
-    role: "EV Owner, Surrey",
-    avatar: "DK",
+    name: "Mantas Vaitkus",
+    role: "EV Owner, Vilnius",
+    avatar: "MV",
     rating: 5,
-    text: "Smart EV charging during off-peak hours saves me a fortune. The app even tells me the best time to charge based on grid prices. Game changer!",
-    savings: "$95/month",
+    text: "Smart charging recommendations based on off-peak pricing made a real difference for my EV costs. The system feels intelligent and well adapted to the local grid.",
+    savings: "€90/month",
   },
 ];
 
@@ -51,7 +51,7 @@ const Testimonials = () => {
 
   const goToPrevious = () => {
     setCurrentIndex(
-      (prev) => (prev - 1 + testimonials.length) % testimonials.length,
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
     );
   };
 
@@ -66,10 +66,11 @@ const Testimonials = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16" ref={ref}>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4 animate-in fade-in slide-in-from-bottom-4 duration-1000">
-            Loved by Vancouver Residents
+            Trusted by Early Users in Lithuania
           </h2>
           <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-200">
-            Join thousands of happy customers saving money and the planet
+            Early adopters across Lithuania are already reducing costs and
+            improving energy efficiency
           </p>
         </div>
 
@@ -100,7 +101,7 @@ const Testimonials = () => {
               {/* Savings Badge */}
               <div className="inline-block px-4 py-2 bg-green-100 dark:bg-green-900/30 rounded-full mb-6">
                 <span className="text-green-700 dark:text-green-400 font-bold">
-                  💰 Saving: {currentTestimonial.savings}
+                  💰 Estimated Savings: {currentTestimonial.savings}
                 </span>
               </div>
 

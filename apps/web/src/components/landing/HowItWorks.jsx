@@ -49,33 +49,33 @@ const HowItWorks = () => {
     {
       number: 1,
       icon: Download,
-      title: "Sign Up",
+      title: "Create an Account",
       description:
-        "Create your account in 2 minutes. No credit card required for the pilot program.",
+        "Sign up in just a few minutes. No credit card required during the Lithuania pilot phase.",
       delay: 0,
     },
     {
       number: 2,
       icon: LinkIcon,
-      title: "Connect Devices",
+      title: "Connect Your Energy Assets",
       description:
-        "Link your smart devices, EV charger, solar panels, and battery storage seamlessly.",
+        "Securely connect smart meters, EV chargers, solar panels, and battery systems used in your home.",
       delay: 200,
     },
     {
       number: 3,
       icon: BarChart3,
-      title: "AI Learns",
+      title: "AI Optimization Phase",
       description:
-        "Our AI studies your patterns for 7 days to create a personalized optimization strategy.",
+        "The system analyzes your energy patterns to build a personalized optimization and forecasting model.",
       delay: 400,
     },
     {
       number: 4,
       icon: TrendingUp,
-      title: "Start Saving",
+      title: "Reduce Costs & Emissions",
       description:
-        "Watch your bills drop and CO₂ emissions fall while earning from energy trading.",
+        "Lower energy costs, reduce CO₂ impact, and participate in local energy sharing where available.",
       delay: 600,
     },
   ];
@@ -100,7 +100,7 @@ const HowItWorks = () => {
             How It Works
           </h2>
           <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-200">
-            Get started in minutes and see results within the first week
+            Designed for households and communities across Lithuania
           </p>
         </div>
 

@@ -60,7 +60,7 @@ const CaseStudyCard = ({ caseStudy }) => {
             <div className="flex items-center gap-1">
               <Calendar size={14} />
               <span>
-                {new Date(caseStudy.publishedAt).toLocaleDateString("en-CA", {
+                {new Date(caseStudy.publishedAt).toLocaleDateString("en-GB", {
                   year: "numeric",
                   month: "short",
                 })}

@@ -64,15 +64,12 @@ const Navbar = () => {
     { to: "/devices", label: "Devices", protected: true },
     { to: "/optimizer", label: "Optimizer", protected: true },
     { to: "/vpp", label: "VPP" },
-
-    // ✅ NEW — P2P (Module 19 placeholder)
+    { to: "/reports", label: "Reports", protected: true },
     {
       to: "/p2p",
       label: "Community Energy",
       badge: "Pilot",
     },
-
-    { to: "/reports", label: "Reports", protected: true },
   ];
 
   const exploreNav = [
@@ -119,7 +116,6 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {/* LEFT NAV ITEMS */}
             {leftNav.map((link) => (
               <Link
                 key={link.to}
@@ -132,18 +128,16 @@ const Navbar = () => {
                 className="flex items-center gap-2 text-slate-700 dark:text-slate-300 hover:text-green-600 dark:hover:text-green-400 font-medium transition-colors relative group"
               >
                 {link.label}
-
                 {link.badge && (
                   <span className="ml-1 px-2 py-0.5 text-xs rounded-full bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300">
                     {link.badge}
                   </span>
                 )}
-
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-600 group-hover:w-full transition-all duration-300" />
               </Link>
             ))}
 
-            {/* EXPLORE DROPDOWN */}
+            {/* EXPLORE */}
             <div ref={exploreRef} className="relative">
               <button
                 onClick={() => setExploreOpen(!exploreOpen)}
@@ -171,7 +165,7 @@ const Navbar = () => {
               )}
             </div>
 
-            {/* COMPANY DROPDOWN */}
+            {/* COMPANY */}
             <div ref={companyRef} className="relative">
               <button
                 onClick={() => setCompanyOpen(!companyOpen)}
@@ -202,16 +196,6 @@ const Navbar = () => {
 
           {/* Right actions */}
           <div className="hidden md:flex items-center gap-4">
-            <select
-              value={locale}
-              onChange={(e) => setLocale(e.target.value)}
-              className="px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white hover:border-green-500"
-            >
-              <option value="en">🇨🇦 EN</option>
-              <option value="fa">🇮🇷 فا</option>
-              <option value="fr">🇫🇷 FR</option>
-            </select>
-
             <button
               onClick={toggleDarkMode}
               className="p-2 rounded-lg border border-slate-300 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all hover:scale-110"
@@ -257,7 +241,6 @@ const Navbar = () => {
                 </Link>
               ))}
 
-              {/* EXPLORE */}
               <details className="px-4">
                 <summary className="cursor-pointer py-2 text-slate-700 dark:text-slate-300 font-medium">
                   Explore
@@ -276,7 +259,6 @@ const Navbar = () => {
                 </div>
               </details>
 
-              {/* COMPANY */}
               <details className="px-4">
                 <summary className="cursor-pointer py-2 text-slate-700 dark:text-slate-300 font-medium">
                   Company
@@ -295,18 +277,8 @@ const Navbar = () => {
                 </div>
               </details>
 
-              {/* Language + Dark Mode */}
+              {/* Dark Mode */}
               <div className="flex items-center gap-4 px-4 pt-4 border-t border-slate-300 dark:border-slate-700">
-                <select
-                  value={locale}
-                  onChange={(e) => setLocale(e.target.value)}
-                  className="flex-1 px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600"
-                >
-                  <option value="en">🇨🇦 EN</option>
-                  <option value="fa">🇮🇷 فا</option>
-                  <option value="fr">🇫🇷 FR</option>
-                </select>
-
                 <button
                   onClick={toggleDarkMode}
                   className="p-2 rounded-lg border border-slate-300 dark:border-slate-600"

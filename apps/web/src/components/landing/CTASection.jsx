@@ -22,10 +22,11 @@ const CTASection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center" ref={ref}>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 animate-in fade-in slide-in-from-bottom-4 duration-1000">
-            Ready to Transform Your Energy Usage?
+            Ready to Transform Energy Use in Lithuania?
           </h2>
           <p className="text-xl text-green-50 mb-8 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-200">
-            Join the pilot program today and start saving immediately
+            Join the pilot program and start saving with smart, AI-driven energy
+            optimization
           </p>
 
           {/* Benefits List */}
@@ -45,27 +46,31 @@ const CTASection = () => {
               size="xl"
               className="group shadow-2xl hover:shadow-green-900/50 bg-white text-green-600 hover:bg-green-50"
             >
-              Join Pilot Program Now
+              Join the Lithuania Pilot Program
               <ArrowRight
                 size={20}
                 className="group-hover:translate-x-1 transition-transform"
               />
             </Button>
             <p className="text-green-100 text-sm mt-4">
-              Limited spots available • Vancouver, BC residents only
+              Limited pilot availability • Lithuania
             </p>
           </div>
 
           {/* Trust Badge */}
           <div className="mt-12 pt-12 border-t border-white/20 animate-in fade-in duration-1000 delay-700">
             <p className="text-green-100 text-sm mb-4">
-              Trusted by leading organizations
+              Aligned with EU energy transition goals
             </p>
             <div className="flex flex-wrap justify-center gap-8 opacity-70">
-              <div className="text-white font-semibold">BC Hydro</div>
-              <div className="text-white font-semibold">Innovate BC</div>
-              <div className="text-white font-semibold">Startup Visa</div>
-              <div className="text-white font-semibold">Clean BC</div>
+              <div className="text-white font-semibold">EU Green Deal</div>
+              <div className="text-white font-semibold">
+                Smart Energy Europe
+              </div>
+              <div className="text-white font-semibold">Startup Ecosystem</div>
+              <div className="text-white font-semibold">
+                Clean Energy Innovation
+              </div>
             </div>
           </div>
         </div>
