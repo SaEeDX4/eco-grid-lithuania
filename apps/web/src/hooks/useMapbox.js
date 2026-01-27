@@ -2,6 +2,9 @@ import { useState, useEffect, useRef } from "react";
 import mapboxgl from "mapbox-gl";
 import { MAPBOX_TOKEN, BC_CENTER, MAP_STYLES } from "../lib/mapboxConfig";
 
+// ✅ FORCE Mapbox token from Vite env (fixes 401 error)
+const VITE_MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
+
 export const useMapbox = (containerRef, options = {}) => {
   const [map, setMap] = useState(null);
   const [loaded, setLoaded] = useState(false);
@@ -16,7 +19,8 @@ export const useMapbox = (containerRef, options = {}) => {
   useEffect(() => {
     if (!containerRef.current || mapInstance.current) return;
 
-    mapboxgl.accessToken = MAPBOX_TOKEN;
+    // ✅ Use env token first, fallback to config token
+    mapboxgl.accessToken = VITE_MAPBOX_TOKEN || MAPBOX_TOKEN;
 
     const newMap = new mapboxgl.Map({
       container: containerRef.current,

@@ -18,8 +18,13 @@ const Navbar = () => {
   const companyRef = useRef(null);
 
   const { locale, setLocale } = useTranslation();
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
+
   const navigate = useNavigate();
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
 
   // Handle sticky background
   useEffect(() => {
@@ -207,8 +212,12 @@ const Navbar = () => {
               )}
             </button>
 
-            <Button variant="gradient" size="default">
-              Join Pilot
+            <Button
+              variant="gradient"
+              size="default"
+              onClick={user ? handleLogout : () => navigate("/auth/login")}
+            >
+              {user ? "Log out" : "Join Pilot"}
             </Button>
           </div>
 
@@ -287,8 +296,13 @@ const Navbar = () => {
                 </button>
               </div>
 
-              <Button variant="gradient" size="lg" className="w-full mt-4">
-                Join Pilot
+              <Button
+                variant="gradient"
+                size="lg"
+                className="w-full mt-4"
+                onClick={user ? handleLogout : () => navigate("/auth/login")}
+              >
+                {user ? "Log out" : "Join Pilot"}
               </Button>
             </div>
           </div>
