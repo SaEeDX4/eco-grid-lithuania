@@ -1,32 +1,13 @@
 import axios from "axios";
 
-// ✅ Determine base URL dynamically for both local dev and Render
-let baseURL;
-
-// 1️⃣ If environment variable exists (Render or local .env)
-if (import.meta.env.VITE_API_BASE) {
-  baseURL = import.meta.env.VITE_API_BASE.replace(/\/+$/, "");
-
-  // 2️⃣ If no env (e.g., local preview or manual test)
-} else if (typeof window !== "undefined") {
-  const origin = window.location.origin;
-
-  // Use port 5000 backend when running locally
-  if (origin.includes("localhost")) {
-    baseURL = "http://localhost:5000/api";
-  } else {
-    // For production (Render, Netlify, etc.)
-    baseURL = `${origin.replace(/\/+$/, "")}/api`;
-  }
-
-  // 3️⃣ Default fallback (SSR, test)
-} else {
-  baseURL = "http://localhost:5000/api";
-}
+// ✅ Single source of truth for API base URL
+// Local: http://localhost:5000
+// Prod : https://eco-grid-lithuania.onrender.com
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
 // ✅ Create axios instance
 const api = axios.create({
-  baseURL,
+  baseURL: `${API_BASE_URL}/api`,
   headers: { "Content-Type": "application/json" },
 });
 
@@ -41,7 +22,7 @@ api.interceptors.request.use(
     }
     return config;
   },
-  (error) => Promise.reject(error)
+  (error) => Promise.reject(error),
 );
 
 // ✅ Response interceptor (auto logout on 401)
@@ -55,7 +36,7 @@ api.interceptors.response.use(
       window.location.href = "/auth/login";
     }
     return Promise.reject(error);
-  }
+  },
 );
 
 export default api;

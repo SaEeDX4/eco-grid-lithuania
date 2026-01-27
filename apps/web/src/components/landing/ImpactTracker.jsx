@@ -4,6 +4,9 @@ import { Card } from "../ui/Card";
 import { useCountUp } from "../../hooks/useCountUp";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
+// ✅ API base URL (local + production safe)
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 const ImpactCard = ({
   icon: Icon,
   value,
@@ -48,7 +51,7 @@ const ImpactTracker = () => {
   useEffect(() => {
     const fetchMetrics = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/metrics/impact");
+        const res = await fetch(`${API_BASE_URL}/api/metrics/impact`);
         const json = await res.json();
         if (json.success && json.metrics) {
           setLiveData(json.metrics);
