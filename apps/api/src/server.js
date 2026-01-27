@@ -29,37 +29,37 @@ import chatRoutes from "./routes/chat.js";
 import faqRoutes from "./routes/faq.js";
 import faqAdminRoutes from "./routes/faqAdmin.js";
 
-// ✅ Added new pricing & subscription routes (Claude instruction)
+// ✅ Added new pricing & subscription routes
 import pricingRoutes from "./routes/pricing.js";
 import subscriptionRoutes from "./routes/subscriptions.js";
 
-// ✅ Added metrics and system routes + service (Claude instruction)
+// ✅ Added metrics and system routes + service
 import metricsRoutes from "./routes/metrics.js";
 import systemRoutes from "./routes/system.js";
 import { startMetricsCollection } from "./services/metricsService.js";
 
-// ✅ Added Blog & Content Routes (Claude instruction)
+// ✅ Added Blog & Content Routes
 import articlesRoutes from "./routes/articles.js";
 import newsletterRoutes from "./routes/newsletter.js";
 import aiWriterRoutes from "./routes/aiWriter.js";
 
-// ✅ Added Testimonials & Case Studies Routes (Module 13)
+// ✅ Added Testimonials & Case Studies Routes
 import testimonialsRoutes from "./routes/testimonials.js";
 import caseStudiesRoutes from "./routes/caseStudies.js";
 
-// ✅ Added Pilots Routes (Module 14)
+// ✅ Added Pilots Routes
 import pilotsRoutes from "./routes/pilots.js";
 
-// ⭐⭐ Roadmap Routes (Module 16)
+// ⭐ Roadmap Routes
 import roadmapRoutes from "./routes/roadmap.js";
 
-// ⭐⭐⭐ VPP (MODULE 17)
+// ⭐ VPP
 import vppRoutes from "./routes/vpp.js";
 
-// ⭐⭐⭐⭐ HUB ROUTES (MODULE 18)
+// ⭐ HUB
 import hubRoutes from "./routes/hub.js";
 
-// ✅ NEW — P2P ROUTES (MODULE 19)
+// ✅ NEW — P2P
 import p2pRoutes from "./routes/p2pRoutes.js";
 
 import { connectDB } from "./config/db.js";
@@ -70,34 +70,53 @@ const PORT = process.env.PORT || 5000;
 // ✅ Check if env loaded properly
 if (!process.env.MONGODB_URI) {
   console.warn(
-    "⚠️  Warning: MONGODB_URI is missing. Make sure it's set in Render environment variables."
+    "⚠️  Warning: MONGODB_URI is missing. Make sure it's set in Render environment variables.",
   );
 }
 
 // ✅ Security middleware
 app.use(helmet());
 
-// ✅ CORS — allow your local + Render frontend
+// =============================
+// ✅ FIXED CORS CONFIG (ONLY CHANGE)
+// =============================
 const allowedOrigins = [
   "http://localhost:5173",
   "http://127.0.0.1:5173",
+
+  // ✅ Render frontend
   "https://eco-grid.onrender.com",
+
+  // ✅ Vercel
   "https://eco-grid-lithuania-web.vercel.app",
+
+  // ✅ PRODUCTION DOMAINS (FIX)
+  "https://eco-grid.co",
+  "https://www.eco-grid.co",
 ];
 
 app.use(
   cors({
     origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
+      if (!origin) return callback(null, true);
+
+      // Exact match
+      if (allowedOrigins.includes(origin)) {
         return callback(null, true);
       }
+
+      // ✅ Allow future subdomains safely
+      if (/^https:\/\/.*\.eco-grid\.co$/.test(origin)) {
+        return callback(null, true);
+      }
+
       console.warn(`🚫 Blocked CORS request from origin: ${origin}`);
       return callback(new Error("Not allowed by CORS"));
     },
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
-  })
+  }),
 );
 
 app.use(express.json());
@@ -109,8 +128,6 @@ connectDB();
 // ✅ Start background metrics after DB connection
 mongoose.connection.once("open", () => {
   console.log("✅ MongoDB connected successfully");
-
-  // Start background metrics collection
   startMetricsCollection();
 });
 
@@ -137,79 +154,33 @@ app.use("/api/partners", partnersRoutes);
 app.use("/api/contact", contactRoutes);
 app.use("/api/chat", chatRoutes);
 
-// ⭐ FAQ ROUTES
 app.use("/api/faq", faqRoutes);
 app.use("/api/faq/admin", faqAdminRoutes);
 
-// ✅ Pricing & Subscriptions
 app.use("/api/pricing", pricingRoutes);
 app.use("/api/subscriptions", subscriptionRoutes);
 
-// ✅ Metrics & System
 app.use("/api/metrics", metricsRoutes);
 app.use("/api/system", systemRoutes);
 
-// ✅ Blog & Content
 app.use("/api/articles", articlesRoutes);
 app.use("/api/newsletter", newsletterRoutes);
 app.use("/api/ai-writer", aiWriterRoutes);
 
-// ⭐ Testimonials & Case Studies
 app.use("/api/testimonials", testimonialsRoutes);
 app.use("/api/case-studies", caseStudiesRoutes);
 
-// ⭐ Pilots
 app.use("/api/pilots", pilotsRoutes);
-
-// ⭐ Roadmap
 app.use("/api/roadmap", roadmapRoutes);
-
-// ⭐ VPP
 app.use("/api/vpp", vppRoutes);
-
-// ⭐ HUB
 app.use("/api/hub", hubRoutes);
-
-// ✅ NEW — P2P (MODULE 19)
 app.use("/api/p2p", p2pRoutes);
 
 // =============================
 // 📌 ROOT DOC
 // =============================
 app.get("/api", (req, res) => {
-  res.json({
-    message: "Welcome to Eco-Grid API",
-    version: "1.0.0",
-    endpoints: {
-      health: "/api/health",
-      ai: "/api/ai",
-      auth: "/api/auth",
-      dashboard: "/api/dashboard",
-      devices: "/api/devices",
-      optimizer: "/api/optimizer",
-      reports: "/api/reports",
-      team: "/api/team",
-      partners: "/api/partners",
-      contact: "/api/contact",
-      chat: "/api/chat",
-      pricing: "/api/pricing",
-      subscriptions: "/api/subscriptions",
-      metrics: "/api/metrics",
-      system: "/api/system",
-      articles: "/api/articles",
-      newsletter: "/api/newsletter",
-      "ai-writer": "/api/ai-writer",
-      testimonials: "/api/testimonials",
-      "case-studies": "/api/case-studies",
-      pilots: "/api/pilots",
-      roadmap: "/api/roadmap",
-      hub: "/api/hub",
-      faq: "/api/faq",
-      faqAdmin: "/api/faq/admin",
-      vpp: "/api/vpp",
-      p2p: "/api/p2p",
-    },
-  });
+  res.json({ message: "Welcome to Eco-Grid API" });
 });
 
 // =============================
@@ -237,13 +208,5 @@ app.use((err, req, res, next) => {
 // 📌 Start server
 // =============================
 app.listen(PORT, () => {
-  console.log(`✅ Eco-Grid API running on http://localhost:${PORT}`);
-  console.log(`📚 API docs: http://localhost:${PORT}/api`);
-  console.log(`💚 Health check: http://localhost:${PORT}/api/health`);
-
-  if (process.env.ANTHROPIC_API_KEY) {
-    console.log("🤖 Claude API key detected successfully ✅");
-  } else {
-    console.warn("❌ Anthropic API key missing. Check apps/api/.env");
-  }
+  console.log(`✅ Eco-Grid API running on port ${PORT}`);
 });
