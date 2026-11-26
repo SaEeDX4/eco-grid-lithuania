@@ -10,7 +10,7 @@ import Footer from "./components/layout/Footer";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import ChatLauncher from "./components/chat/ChatLauncher";
 
-// ✅ Pages
+// Pages
 import LandingPage from "./pages/LandingPage";
 import DemoPage from "./pages/DemoPage";
 import LoginPage from "./pages/auth/LoginPage";
@@ -26,7 +26,6 @@ import PartnersPage from "./pages/PartnersPage";
 import ContactPage from "./pages/ContactPage";
 import PricingPage from "./pages/PricingPage";
 
-// ✅ From Claude
 import SUVPage from "./pages/SUVPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 
@@ -48,22 +47,22 @@ import FAQPage from "./pages/FAQPage";
 // Roadmap
 import RoadmapPage from "./pages/RoadmapPage";
 
-// ⭐⭐⭐ VPP Pages
+// VPP Pages
 import VPPOverviewPage from "./pages/VPPOverviewPage";
 import VPPPoolsPage from "./pages/VPPPoolsPage";
 import VPPPoolDetailPage from "./pages/VPPPoolDetailPage";
 import VPPRevenuePage from "./pages/VPPRevenuePage";
 
-// ⭐⭐⭐⭐ HUB PAGES (DO NOT DELETE)
+// HUB PAGES
 import HubList from "./pages/HubList";
 import HubOverview from "./pages/HubOverview";
 import HubPolicies from "./pages/HubPolicies";
 import HubAnalytics from "./pages/HubAnalytics";
 import HubRevenue from "./pages/HubRevenue";
 import TenantDetail from "./pages/TenantDetail";
-// ⭐⭐⭐⭐ END HUB PAGES
+// END HUB PAGES
 
-// ⭐ NEW — P2P Community Page (Module 19 placeholder)
+// NEW — P2P Community Page (Module 19 placeholder)
 import P2PCommunity from "./pages/P2PCommunity";
 
 function AppContent() {
@@ -273,7 +272,7 @@ function AppContent() {
           }
         />
 
-        {/* ⭐⭐⭐ VPP ROUTES */}
+        {/* VPP Routes */}
         <Route
           path="/vpp"
           element={
@@ -370,7 +369,7 @@ function AppContent() {
           }
         />
 
-        {/* ⭐⭐⭐⭐ HUB ROUTES */}
+        {/* Hub Routes */}
         <Route
           path="/hub/list"
           element={
